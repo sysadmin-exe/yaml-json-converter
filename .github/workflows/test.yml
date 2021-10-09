@@ -21,10 +21,6 @@ jobs:
       name: Python Tests
       run: |
         pip3 install -r requirements.txt
-        python3 surveyapi/manage.py test    
+        python3 yason/manage.py test    
       env:
-        DB_USERNAME:  ${{ secrets.DB_USERNAME }}
-        DB_PASSWORD:  ${{ secrets.DB_PASSWORD }}
-        DB_NAME:  ${{ secrets.DB_NAME }}
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
-        DB_CLIENT_HOST: ${{ secrets.DB_CLIENT_HOST }}
