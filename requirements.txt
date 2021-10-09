@@ -1,0 +1,6 @@
+pyyaml
+django
+djangorestframework
+django-cors-headers
+djangorestframework-yaml
+simplejson

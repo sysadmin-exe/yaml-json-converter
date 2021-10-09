@@ -1,0 +1,41 @@
+name: Deploy API Code
+
+on:
+  push:
+    branches:
+    - main
+    
+jobs:
+  Test-And-Deploy:
+    name: Test and Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+
+    # Checkout from git master branch
+    - name: Checkout
+      uses: actions/checkout@master
+    
+    # Tests 
+    - id: Test-code
+      name: Python Tests
+      run: |
+        pip3 install -r requirements.txt
+        python3 surveyapi/manage.py test    
+      env:
+        DB_USERNAME:  ${{ secrets.DB_USERNAME }}
+        DB_PASSWORD:  ${{ secrets.DB_PASSWORD }}
+        DB_NAME:  ${{ secrets.DB_NAME }}
+        SECRET_KEY: ${{ secrets.SECRET_KEY }}
+        DB_CLIENT_HOST: ${{ secrets.DB_CLIENT_HOST }}
+    # Deploy
+    - id: deploy-code
+      name: Deploy Code
+      run: |
+        echo "use what ever deployment method you can use"
+      env:
+        DB_USERNAME:  ${{ secrets.DB_USERNAME }}
+        DB_PASSWORD:  ${{ secrets.DB_PASSWORD }}
+        DB_NAME:  ${{ secrets.DB_NAME }}
+        SECRET_KEY: ${{ secrets.SECRET_KEY }}
+        DB_CLIENT_HOST: ${{ secrets.DB_CLIENT_HOST }}
