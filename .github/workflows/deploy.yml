@@ -21,7 +21,7 @@ jobs:
       name: Python Tests
       run: |
         pip3 install -r requirements.txt
-        python3 yason/manage.py test    
+        python3 yasn/manage.py test    
       env:
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
 
