@@ -13,12 +13,12 @@ stage('PR ONLY - Install App Dependencies') {
       steps {
         _sh """
         echo 'installing app build requirements'
-        cd cidr_convert_api/python
+        cd yason
         pip install virtualenv
         virtualenv victor
         ls
         source victor/bin/activate
-        pip install -r requirements.txt
+        pip install -r ../requirements.txt
         """
       }
     }
@@ -61,11 +61,12 @@ stage('PR ONLY - Install App Dependencies') {
         steps {
           _sh """
           echo 'installing app build requirements'
+          cd yason
           pip install virtualenv
           virtualenv victor
           ls
           source victor/bin/activate
-          pip install -r requirements.txt
+          pip install -r ../requirements.txt
           """
         }
       }
