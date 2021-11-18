@@ -115,7 +115,7 @@ stage('PR ONLY - Install App Dependencies') {
       }
       steps{
         //script to deploy the docker image goes here
-
+        echo "this little light of mine"
       }
     }  
   }
